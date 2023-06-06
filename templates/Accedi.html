@@ -49,7 +49,7 @@
         </div>
         <div style="float: right; margin-right: 300px; display: inline">
             <form style="margin-left:40px; margin-right: 50px; margin-top:12px; float: right; font-size: 14px" method="POST" action="{% url 'cercaRicettaperCategoria' %}">
-                  {% csrf_token %}
+                {% csrf_token %}
                 <select name="categoria">
                     <option value="Tutte">Tutte</option>
                     <option value="Antipasti">Antipasti</option>
