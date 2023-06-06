@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-q4uoe))0xre=4t%l#6qxm5qtewl3k+lw1n=n4&x2ajyr2jj$$g
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://web-production-f7e0.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-f7e0.up.railway.app/']
 CSRF_COOKIE_SECURE = True
-CORS_ALLOWED_ORIGINS = ['https://web-production-f7e0.up.railway.app']
-CSRF_COOKIE_DOMAIN = 'https://web-production-f7e0.up.railway.app'
+CORS_ALLOWED_ORIGINS = ['https://web-production-f7e0.up.railway.app/']
+CSRF_COOKIE_DOMAIN = 'https://web-production-f7e0.up.railway.app/'
 
 CSRF_COOKIE_NAME = 'csrftoken'
 CSRF_COOKIE_HTTPONLY = True
