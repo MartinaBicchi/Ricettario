@@ -100,6 +100,7 @@ def create_ricetta(request):
     return render(request, 'CreaRicetta.html', context)
 
 
+@csrf_protect
 def registerLogin(request):
     user1 = request.POST.get('NomeUtente')
     email1 = request.POST.get('IndirizzoEmail')
