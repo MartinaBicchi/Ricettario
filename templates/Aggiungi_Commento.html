@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p style="color: cornflowerblue; text-align: center; margin-top: 30px; font-size: 30px"><b><i>Aggiungi commento alla ricetta "{{ ricetta }}"</i></b></p>
+    <div style="margin-top: 80px; font-size: 22px; margin-left: 40px">
+        Il commento inserito da <i>{{ user.first_name }}  {{ user.last_name }}</i> viene salvato alla ricetta <i>{{ ricetta.titolo}}</i>
+    </div>
+        <form  style="margin-top:80px; text-align: center" method="post" action="{% url 'AddCommento' ricetta.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+                {{ form.as_p }}
+            <div>
+                <button style="background-color: cornflowerblue; width: 180px; height: 40px; font-size: 20px; border: 2px lightskyblue solid; color: white" type="submit" class="btn btn-primary">Salva Commento</button>
+            </div>
+        </form>
+
+<style>
+    input:invalid + .error{
+        display: block;
+    }
+</style>
+</body>
+</html>

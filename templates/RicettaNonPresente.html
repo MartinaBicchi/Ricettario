@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="color: red; font-size: 35px; margin-top: 30px; text-align: center">La ricetta che hai inserito non è presente nel nostro sito!</div>
+    <div style="font-size: 25px; width: 100%; margin-left: 130px; margin-top: 80px"> <p>Per proseguire hai due opzioni: </p>
+        <ul>
+            <li style="margin-bottom: 20px">Puoi tornare alla Home e cercare una nuova ricetta tra quelle presenti <br>
+                <a style="color:white; text-decoration: none; width: 62px; background-color: cornflowerblue; border: 2px lightskyblue solid; display: block; margin: 0 auto; margin-left: 300px; margin-top: 20px" href="{% url 'accedi'  %} " class="btn btn-primary">Home</a> </li>
+            <li>Puoi inserire una nuova ricetta</li>
+                <a style="color:white; text-decoration: none; width: 126px; background-color: cornflowerblue; border: 2px lightskyblue solid; display: block; margin: 0 auto; margin-left: 267px; margin-top: 20px" href="/ricette/iscriviti/accedi/paginaAccedi/CreaRicetta" type="submit" class="btn btn-primary">Crea Ricetta</a>
+        </ul>
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container" style="text-align: center; font-size: 25px; margin-top: 130px">
+        Queste sono tutte le ricette che <i style="color: #ff8080">{{ user.first_name }}  {{ user.last_name }}</i> ha contrassegnato come preferite:
+    </div>
+    <div class="container" style="width: 80%; margin-left: 100px; margin-top: 30px">
+         {% for preferito in preferiti %}
+             <div style="background-color: cornflowerblue;">
+                 <div style="text-align: center; font-size: 20px; color: black"> <a  href="{% url 'ricettadescrizione' id_ricetta=preferito.Ricetta.id %}"><i style="color: black; text-decoration: #ff8080 underline">{{ preferito.Ricetta.titolo }}</i></a> </div>
+                <p> {{ preferito.Ricetta.istruzioni }}</p>
+             </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

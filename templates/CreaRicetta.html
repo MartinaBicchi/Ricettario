@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreaRicetta</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container" style="margin-bottom: 30px" >
+        <p style="text-align: center; margin-top: 20px; font-size: 30px; color: #ff8080"><i><b>Inserisci una nuova ricetta</b></i></p>
+        <form method="post" action="{% url 'create_ricetta' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="titolo"> Titolo Ricetta</label>
+                <input type="text" name="titolo" class="form-control" id="Titolo" placeholder="Inserisci Titolo">
+                <span class="error" id="TitoloError"> Inserisci un titolo</span> <br>
+            </div>
+            <div class="form-group">
+                <label for="categoria"> Categoria</label>
+                <select name="categoria" id="Categoria" class="form-control">
+                    {% for categoria in form.categoria.field.choices %}
+                        <option value="{{ categoria.0 }}">{{ categoria.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="difficolta"> Difficoltà </label>
+                <input type="number" name="difficolta" class="form-control" id="Difficolta" placeholder="Inserisci Difficolta">
+                <span class="error" id="DifficoltaError"> Inserisci la difficoltà</span> <br>
+            </div>
+            <div class="form-group">
+                <label for="tempo_svolgimento"> Tempo di Svolgimento</label>
+                <input type="text" name="tempo_svolgimento" class="form-control" id="Tempo_svolgimento" placeholder="Inserisci Tempo_svolgimento">
+                <span class="error" id="Tempo_svolgimento_Error"> Inserisci il tempo di svolgimento</span> <br>
+            </div>
+            <div class="form-group">
+                <label for="numero_persone"> Numero di Persone</label>
+                <input type="number" name="numero_persone" class="form-control" id="Numero_persone" placeholder="Inserisci Numero_persone">
+                <span class="error" id="Numero_personeError"> Inserisci il numero di persone</span> <br>
+            </div>
+            <div class="form-group">
+                <label for="ingredienti">Ingredienti</label>
+                <input type="text" name="ingredienti" class="form-control" id="Ingredienti" placeholder="Inserisci Ingredienti">
+                <span class="error" id="IngredientiError"> Inserisci gli ingredienti</span> <br>
+            </div>
+            <div class="form-group">
+                <label for="istruzioni">Istruzioni</label>
+                <input type="text" name="istruzioni" class="form-control" id="Istruzioni" placeholder="Inserisci Istruzioni">
+                <span class="error" id="IstruzioniError"> Inserisci le istruzioni</span> <br>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Salva</button>
+            </div>
+        </form>
+    </div>
+<style>
+    .error{
+        display: none;
+        color: red;
+    }
+
+    input:invalid + .error{
+        display: block;
+    }
+</style>
+  </body>
+</html>

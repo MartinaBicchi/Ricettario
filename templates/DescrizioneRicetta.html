@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="margin-top: 30px">
+    <h3 style="text-align: center; font-size: 30px; color:#ff8080 ">Descrizione della ricetta <i style="text-decoration: underline #ff8080">"{{ ricetta }}"</i></h3>
+    <div style="background-color: #ff8080; display:inline; float: right; width: 180px; color: white; margin-top: -58px; font-size: 20px; text-align: center">
+        <a style="text-decoration: none; color: black" href="{% url 'accedi'  %} " class="btn btn-primary">Torna alla Home</a>
+    </div>
+    <div class="container" style="font-size: 20px">
+        <p>Questa ricetta è pensata per {{ ricetta.numero_persone }} persone.</p>
+        <p>La difficoltà dello svolgimento è: {{ ricetta.difficolta }}/5 e il tempo di svolgimento è : {{ ricetta.tempo_svolgimento }}</p>
+        <ul>
+            <li> <b style="font-size: 25px"> <i>Ingredienti</i></b>: {{ ricetta.ingredienti }}</li>
+            <li> <b style="font-size: 25px"><i>Istruzioni</i></b>: {{ ricetta.istruzioni }}</li>
+        </ul>
+    </div>
+    <div style="display: inline; font-size: 30px; color: cornflowerblue; text-decoration: underline cornflowerblue; margin-bottom: 10px; margin-top: 50px">
+        Commenti:
+    </div>
+    <div style="display:inline; float: right; width: 180px; background-color: cornflowerblue; color: white; margin-top: 10px; font-size: 20px; text-align: center" >
+        <a style="color: white; text-decoration: none" href="{% url 'AddCommento' id_recipes=ricetta.id %} " class="btn btn-primary">Inserisci Commento</a>
+    </div>
+    <div style="margin-bottom: 20px; margin-top: 15px; background-color:#b0c4de; width: 100%; border-bottom: cornflowerblue 2px solid; font-size: 20px">
+        {% for commento in comments %}
+            <div class='container' style="border: cornflowerblue 2px solid; border-bottom: 1px; display: flex">
+                <div class="col" style="flex: 1">
+                    {{ commento.Utente }}
+                </div>
+                <div class="col" style="flex: 1">
+                    {{ commento.Testo }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

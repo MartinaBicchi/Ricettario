@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+      <style>
+
+            a:hover{
+                color: cornflowerblue !important;
+            }
+      </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container" style="margin-top: 50px; font-size: 30px">
+        <p style="float: left">BENVENUTO!</p>
+        <form style="float: right" action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Logout" style="background-color:#ff8080; border: 1px; font-size: 20px">
+        </form>
+        <form style="margin-left:40px; margin-right: 50px; margin-top:12px; float: right; font-size: 14px" method="POST" action="{% url 'cercaRicetta' %}">
+          {% csrf_token %}
+            <label>
+                <input style="width: 200px" type="text" name="titolo" placeholder="Inserisci il nome della ricetta">
+            </label>
+            <button style="background-color: cornflowerblue; color: white; border: 2px lightskyblue solid" type="submit">Cerca</button>
+        </form>
+        <p style="float: right; margin-right: 20px"><b><i>{{ user.first_name }}  {{ user.last_name }}</i></b></p>
+    </div>
+
+  <div class="container" style="margin-top: 10px; font-size: 22px">
+      <p> Hai appena fatto l'accesso al nostro sito web di condivsione di ricette. Puoi visualizzare tutte le ricette divise per categoria, puoi aggiungere nuove ricette, contrassegnare le ricette che più ti piacciono come 'preferite' e commentare tutte le ricette presenti. <b>Buon divertimento!</b></p>
+  </div>
+    <div class="container" style="margin-bottom: 20px">
+        <div style="font-size: 20px">
+          <p style="display: inline; float: left">- Se vuoi visualizzare tutte le ricette che hai contrassegnato come preferite clicca il pulsante a fianco</p>
+          <a  style="color:black; font-size:20px; display: inline; margin-left: 10px; background-color: #ff8080 " href="{% url 'preferiti' %}" type="button" class="btn btn-primary">Preferiti</a>
+        </div>
+        <div class="container" style="font-size: 20px; margin-top: 10px">
+            <p style="display: inline; float: left">- Se vuoi inserire una nuova ricetta clicca il pulsante a lato</p>
+            <a style="color:black; font-size:20px; display: inline; margin-left: 10px; background-color: #ff8080" href="/ricette/iscriviti/accedi/paginaAccedi/CreaRicetta" type="submit" class="btn btn-primary">Aggiungi Ricetta</a>
+        </div>
+    </div>
+    <div>
+        <div style="float:left;margin-left: 340px; font-size: 30px; color:#ff8080 ">
+            <i>Tutte le ricette</i>
+        </div>
+        <div style="float: right; margin-right: 300px; display: inline">
+            <form style="margin-left:40px; margin-right: 50px; margin-top:12px; float: right; font-size: 14px" method="POST" action="{% url 'cercaRicettaperCategoria' %}">
+                  {% csrf_token %}
+                <select name="categoria">
+                    <option value="Tutte">Tutte</option>
+                    <option value="Antipasti">Antipasti</option>
+                    <option value="Primi">Primi</option>
+                    <option value="Secondi">Secondi</option>
+                    <option value="Contorni">Contorni</option>
+                    <option value="Dolci">Dolci</option>
+                </select>
+                <input style="background-color: cornflowerblue; color: white; border: 2px lightskyblue solid" type="submit" value="Cerca">
+            </form>
+        </div>
+    </div>
+  <div class="container" style="margin-top: 70px">
+          <div class="container" style=" background-color: #ff8080; width: 50%; color: white; margin-bottom: 30px">
+              {% for categoria, ricette in gruppi %}
+                    <h2 style="color: black; font-size: 25px">{{ categoria }}</h2>
+                    <ul style="font-size: 18px">
+                        {% for ricetta in ricette %}
+                            <li style="display: inline"> <i>{{ ricetta }} </i>
+                            <a href="{% url 'ricettadescrizione' ricetta.id %}" type="button" class="btn btn-primary" style="display: inline; float: right; background-color: cornflowerblue">Dettagli</a>
+                            <a href="{% url 'add-to-favorites' ricetta.id %}" style="display: inline; float: right; margin-right: 15px; margin-top: 5px; color: white; ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                            </svg>
+                            </a>
+                                <p style="clear: both"></p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+              {% endfor %}
+          </div>
+  </div>
+
+  </body>
+</html>
