@@ -10,7 +10,6 @@
     <div class="container" style="margin-bottom: 30px" >
         <p style="text-align: center; margin-top: 20px; font-size: 30px; color: #ff8080"><i><b>Inserisci una nuova ricetta</b></i></p>
         <form method="post" action="{% url 'create_ricetta' %}">
-            {% csrf_token %}
             <div class="form-group">
                 <label for="titolo"> Titolo Ricetta</label>
                 <input type="text" name="titolo" class="form-control" id="Titolo" placeholder="Inserisci Titolo">
