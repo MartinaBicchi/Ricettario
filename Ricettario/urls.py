@@ -20,18 +20,18 @@ from ricette import views
 
 urlpatterns = [ #sono inclusi tutti gli URL accessibili nel sito web
     path('admin/', admin.site.urls),
-    path('ricette/', views.ricettehome, name='HOME'), #ora l'utente quando va all'indirizzo ricette verrà lanciata la vista ricette che si occuperà di renderizzare la pagina html associata
-    path('ricette/iscriviti/', views.iscrizione),
-    path('ricette/login/', views.Login, name='login'),
-    path('ricette/iscriviti/accedi/', views.register, name='register'),
-    path('ricette/iscriviti/accedi/paginaAccedi', views.accedi, name='accedi'),
-    path('ricette/iscriviti/accedi/paginaAccedi/CreaRicetta', views.create_ricetta, name='create_ricetta'),
-    path('ricette/login/accedi/paginaAccedi/', views.registerLogin, name='registerLogin'),
-    path('ricette/', views.Userlogout, name='logout'),
-    path('ricette/iscriviti/accedi/paginaAccedi/<int:id_ricetta>', views.ricettadescrizione, name='ricettadescrizione'),
-    path('ricette/iscriviti/accedi/paginaAccedi/commento/<int:id_recipes>', views.AddCommento, name='AddCommento'),
-    path('ricette/iscriviti/accedi/paginaAccedi/Preferiti', views.preferiti, name='preferiti'),
-    path('ricette/iscriviti/accedi/paginaAccedi/add-to-favorites/<int:recipe_id>/', views.add_to_favorites, name='add-to-favorites'),
-    path('ricette/iscriviti/accedi/paginaAccedi/ricetta', views.cercaRicetta, name='cercaRicetta'),
-    path('ricette/iscriviti/accedi/paginaAccedi/ricetta/categoria', views.cercaRicettaperCategoria, name='cercaRicettaperCategoria'),
+    path('', views.ricettehome, name='HOME'), #ora l'utente quando va all'indirizzo ricette verrà lanciata la vista ricette che si occuperà di renderizzare la pagina html associata
+    path('iscriviti/', views.iscrizione),
+    path('login/', views.Login, name='login'),
+    path('iscriviti/accedi/', views.register, name='register'),
+    path('iscriviti/accedi/paginaAccedi', views.accedi, name='accedi'),
+    path('iscriviti/accedi/paginaAccedi/CreaRicetta', views.create_ricetta, name='create_ricetta'),
+    path('login/accedi/paginaAccedi/', views.registerLogin, name='registerLogin'),
+    path('', views.Userlogout, name='logout'),
+    path('iscriviti/accedi/paginaAccedi/<int:id_ricetta>', views.ricettadescrizione, name='ricettadescrizione'),
+    path('iscriviti/accedi/paginaAccedi/commento/<int:id_recipes>', views.AddCommento, name='AddCommento'),
+    path('iscriviti/accedi/paginaAccedi/Preferiti', views.preferiti, name='preferiti'),
+    path('iscriviti/accedi/paginaAccedi/add-to-favorites/<int:recipe_id>/', views.add_to_favorites, name='add-to-favorites'),
+    path('iscriviti/accedi/paginaAccedi/ricetta', views.cercaRicetta, name='cercaRicetta'),
+    path('iscriviti/accedi/paginaAccedi/ricetta/categoria', views.cercaRicettaperCategoria, name='cercaRicettaperCategoria'),
 ]

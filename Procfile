@@ -1,1 +1,1 @@
-web: python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn Ricettario.wsgi --log-file -
+web: gunicorn Ricettario.wsgi --log-file -
