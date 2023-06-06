@@ -109,7 +109,6 @@ def registerLogin(request):
         return redirect('HOME')
 
 
-
 @login_required
 def AddCommento(request, id_recipes):
     if request.method=='POST':

@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ricette import views
+from django.middleware.csrf import CsrfViewMiddleware
 
 urlpatterns = [ #sono inclusi tutti gli URL accessibili nel sito web
     path('admin/', admin.site.urls),

@@ -10,7 +10,8 @@
         Il commento inserito da <i>{{ user.first_name }}  {{ user.last_name }}</i> viene salvato alla ricetta <i>{{ ricetta.titolo}}</i>
     </div>
         <form  style="margin-top:80px; text-align: center" method="post" action="{% url 'AddCommento' ricetta.id %}" enctype="multipart/form-data">
-                {{ form.as_p }}
+            {% csrf_token %}
+            {{ form.as_p }}
             <div>
                 <button style="background-color: cornflowerblue; width: 180px; height: 40px; font-size: 20px; border: 2px lightskyblue solid; color: white" type="submit" class="btn btn-primary">Salva Commento</button>
             </div>
