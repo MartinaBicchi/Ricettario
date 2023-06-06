@@ -1,14 +1,14 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.csrf import csrf_protect
+
 from .models import Ricetta, Categoria, Commento, Preferiti
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth import login, authenticate, logout
 from .forms import FormNuovaRicetta, FormCommento
 from itertools import groupby
-from django.core.exceptions import ObjectDoesNotExist
-
 
 
 # Create your views here.
@@ -19,9 +19,11 @@ def ricettehome(request):
 def iscrizione(request):
     return render(request, 'Iscriviti.html')
 
+@csrf_protect
 def Login(request):
     return render(request, 'Login.html')
 
+@csrf_protect
 def accedi(request):
     ricette = Ricetta.objects.order_by('categoria')
     gruppi = groupby(ricette, lambda x: x.categoria)
@@ -99,6 +101,7 @@ def create_ricetta(request):
     return render(request, 'CreaRicetta.html', context)
 
 
+@csrf_protect
 def registerLogin(request):
     user1 = request.POST.get('NomeUtente')
     email1 = request.POST.get('IndirizzoEmail')
