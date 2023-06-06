@@ -27,9 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://web-production-4d50.up.railway.app']
-CORS_ALLOWED_ORIGINS = ['https://web-production-4d50.up.railway.app']
-CSRF_COOKIE_DOMAIN = 'https://web-production-4d50.up.railway.app'
+CSRF_TRUSTED_ORIGINS = ['https://web-production-f7e0.up.railway.app']
+CORS_ALLOWED_ORIGINS = ['https://web-production-f7e0.up.railway.app']
+CSRF_COOKIE_DOMAIN = 'https://web-production-f7e0.up.railway.app'
 
 # Application definition
 
