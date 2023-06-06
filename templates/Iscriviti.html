@@ -10,7 +10,6 @@
     <div class="container" >
         <p style="text-align: center; margin-top: 20px; font-size: 30px; color: blue"><i><b>Effettua la registrazione</b></i></p>
         <form method="post" style="margin-top: 50px; margin-bottom: 50px" action="{% url 'register' %}">
-            {% csrf_token %}
             <div class="form-group">
         <label for="NomeUtente">Nome Utente</label>
         <input type="text" name="NomeUtente" class="form-control" id="NomeUtente" aria-describedby="emailHelp" placeholder="Inserisci email">
