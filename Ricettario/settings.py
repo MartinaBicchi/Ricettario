@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q4uoe))0xre=4t%l#6qxm5qtewl3k+lw1n=n4&x2ajyr2jj$$g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True') != 'False'
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['IP', 'https://web-production-f7e0.up.railway.app/']
 CSRF_TRUSTED_ORIGINS = ['https://web-production-f7e0.up.railway.app/']
 CSRF_COOKIE_SECURE = True
 CORS_ALLOWED_ORIGINS = ['https://web-production-f7e0.up.railway.app/']
