@@ -61,6 +61,8 @@ def register(request):
         cognome = request.POST.get('Cognome')
         email = request.POST. get('IndirizzoEmail')
         password = request.POST.get('Password')
+        if User.objects.filter(username=username).exists():
+            return redirect('HOME')
         user = User.objects.create_user(username=username, first_name= name, last_name=cognome, email=email, password=password)
         content_type = ContentType.objects.get_for_model(Ricetta)
         permission = Permission.objects.get(
@@ -103,12 +105,8 @@ def registerLogin(request):
     pass1 = request.POST.get('Password')
     user = authenticate(username=user1, email=email1, password=pass1)
     if user is not None:
-        if User.objects.filter(username=user1).exists():
-            return redirect('HOME')
-        else:
-            login(request, user) # Continua con il flusso normale
-            return redirect('accedi')
-
+       login(request, user) # Continua con il flusso normale
+       return redirect('accedi')
     else:
         return redirect('HOME')
 
