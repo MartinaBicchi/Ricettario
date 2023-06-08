@@ -103,8 +103,12 @@ def registerLogin(request):
     pass1 = request.POST.get('Password')
     user = authenticate(username=user1, email=email1, password=pass1)
     if user is not None:
-        login(request, user) # Continua con il flusso normale
-        return redirect('accedi')
+        try:
+            login(request, user) # Continua con il flusso normale
+            return redirect('accedi')
+        except User.DoesNotExist:
+            return redirect('HOME')
+
     else:
         return redirect('HOME')
 
