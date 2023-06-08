@@ -63,14 +63,15 @@ def register(request):
         password = request.POST.get('Password')
         if User.objects.filter(username=username).exists():
             return redirect('HOME')
-        user = User.objects.create_user(username=username, first_name= name, last_name=cognome, email=email, password=password)
-        content_type = ContentType.objects.get_for_model(Ricetta)
-        permission = Permission.objects.get(
-            content_type=content_type,
-            codename='add_ricetta'
-        )
-        user.user_permissions.add(permission)
-        return redirect('login')
+        else:
+            user = User.objects.create_user(username=username, first_name= name, last_name=cognome, email=email, password=password)
+            content_type = ContentType.objects.get_for_model(Ricetta)
+            permission = Permission.objects.get(
+                content_type=content_type,
+                codename='add_ricetta'
+            )
+            user.user_permissions.add(permission)
+            return redirect('login')
     else:
         return render(request, 'Iscriviti.html')
 
